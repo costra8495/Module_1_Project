@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Web Sprint 1 Challenge</title>
+  <style>
+    .widget {
+      padding: 0 0 0.5rem 0.65rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid black;
+      border-radius: 0.5rem;
+    }
+
+    .widget p {
+      font-size: 0.75rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Web Sprint 1 Challenge </h1>
+  <p>❗ See the script tag for instructions on completing your Challenge</p>
+  <!-- widgets start -->
+  <section class="widget">
+    <p>This widget uses the advancedBatteryCare function</p>
+    <input type="range" min="0" max="100" value="50" id="sliderBattery">
+    <div id="infoBattery">your battery is at 50%</div>
+  </section>
+  <section class="widget">
+    <p>This widget uses the timeConverter function</p>
+    <div id="time">00:00:00</div>
+  </section>
+  <section class="widget">
+    <p>This widget uses the rockPaperScissors function</p>
+    <input id="inputTool1">
+    <input id="inputTool2">
+    <div id="rps">type your tools...</div>
+  </section>
+  <!-- widgets end -->
+
+  <script id="challenge">
+    // In CHALLENGES 1-6 you will write JavaScript functions
+    // In CHALLENGE 7 you will edit the HTML to add some missing id attributes
+
+    // ❗ Functions are scaffolded for you, but are missing their parameters and bodies
+    // ❗ Do not rename the functions provided, and do not create any other script tags
+    // ❗ Debug properly using the Console
+
+    // 👉 CHALLENGE 1
+    function concatenator(a, b) {
+      // 🧠 concatenator takes two arguments a and b:
+      //    * If a and b are strings, return them concatenated
+      //    * If a and b are numbers, return their sum
+      // 🧠 Edge cases:
+      //    * Both a and b must be of the same type (use typeof). Else return the string "a and b must be of the same type"
+      //    * a and b can be either numbers or strings. Else return "a and b must be numbers or strings"
+      let result;
+      if ((typeof a==='string')&&(typeof b==='string')){
+        result= a + b
+      } else if ((typeof a==='number')&& (typeof b=== 'number')){
+        result= a + b
+      } else if ((typeof a)!==(typeof b)){
+        result= "a and b must be of the same type"
+      } else {
+        result="a and b must be numbers or strings"
+      }
+      return result
+    
+    }
+
+    // 👉 CHALLENGE 2
+    function falsinessDetector(a, b, c, d, e) {
+      // 🧠 falsinessDetector takes five arguments a, b, c, d and e which are values of any type:
+      //    * If some values are truthy and some falsy, return the string "some values truthy and some falsy"
+      //    * If all values are falsy, return the string "all values falsy"
+      //    * If all values are truthy, return the string "all values truthy"
+      let result;
+      if (((Boolean(a))===true)&&
+          ((Boolean(b))===true)&&
+          ((Boolean(c))===true)&&
+          ((Boolean(d))===true)&&
+          ((Boolean(e))===true)){
+            result = "all values truthy" 
+          } else if (
+          ((Boolean(a))===false)&&
+          ((Boolean(b))===false)&&
+          ((Boolean(c))===false)&&
+          ((Boolean(d))===false)&&
+          ((Boolean(e))===false)){
+            result = "all values falsy" 
+          } else{
+            result =  "some values truthy and some falsy"
+          }
+          return result
+    
+    }
+
+    // 👉 CHALLENGE 3
+    function triangleAnalyzer(angleA, angleB, angleC) {
+      // 🧠 triangleAnalyzer takes three arguments angleA, angleB and angleC:
+      //    * If any angle is 90 degrees, return the string "this is a right triangle"
+      //    * If any angle is over 90 degrees, return the string "this is an obtuse triangle"
+      //    * If all angles are under 90 degrees, return the string "this is an acute triangle"
+      // 🧠 Edge cases:
+      //    * All angles must be of type number. Else return the string "all angles must be numbers"
+      //    * All angles must be greater than zero. Else return the string "all angles must be greater than zero"
+      //    * The three angles must add up to 180. Else return the string "angles must total 180"
+      let result;
+     if(
+    (typeof angleA!=='number')||
+    (typeof angleB!=='number')||
+    (typeof angleC!=='number')){
+      result= "all angles must be numbers" 
+     }else if (
+            !(angleA>0)||
+            !(angleB>0)||
+            !(angleC>0)){
+              result= "all angles must be greater than zero"
+     } else if(!((angleA+angleB+angleC)===180)){
+              result= "angles must total 180"
+     
+     }else if ((angleA===90)||
+      (angleB===90)||
+      (angleC===90)){
+        result= "this is a right triangle"
+     }else if (
+        (angleA>90)||
+        (angleB>90)||
+        (angleC>90)){
+          result= "this is an obtuse triangle"
+     }else if (
+          (angleA<90)&&
+          (angleB<90)&&
+          (angleC<90)){
+            result= "this is an acute triangle"
+          }
+          
+          
+          return result
+      }
+    // 👉 CHALLENGE 4
+    function advancedBatteryCare(number) {
+      // 🧠 advancedBatteryCare takes a percentage as its argument, expressed as a number between 0 and 100 inclusive:
+      //    * If percentage in the range between 20 and 80 inclusive (E.G. 47), return a string like "your battery is at 47%"
+      //    * If percentage over 80, return the string "please unplug charger"
+      //    * If percentage under 20, return the string "please connect charger"
+      //    * If percentage exactly 0, return the string "congrats, battery dead"
+      //    * If percentage exactly 100, return the string "congrats, you cooked your battery"
+        let result;
+          if (number>80 & number<100){
+            result= "please unplug charger"
+          }else if(number<20 & number>0){
+            result= "please connect charger"
+          }else if (number===0){
+            result= "congrats, battery dead"
+          } else if (number===100){
+            result= "congrats, you cooked your battery"
+          }else {
+            result= `your battery is at ${number}%`
+          }
+          return result
+
+
+    
+    }
+
+    // 👉 CHALLENGE 5
+    function timeConverter(seconds) {
+      // 🧠 timeConverter takes a single argument called seconds which can range between 0 and 86399 (a full day)
+      //    and returns a string in the hh:mm:ss format. Examples of use:
+      //      timeConverter(0) // returns the string "00:00:00"
+      //      timeConverter(1) // returns the string "00:00:01"
+      //      timeConverter(119) // returns the string "00:01:59"
+      //      timeConverter(86399) // returns the string "23:59:59"
+      // ❗ Hint: you will need to calculate remainders with the modulo operator
+      // ❗ Hint: it will be useful to remove the decimal parts of some results: Math.floor(121 / 60) returns 2
+      // ❗ Hint: obtain hours like so: seconds divided by number of seconds in one hour, and then removing the decimal part
+    let result;
+     if (seconds===0){
+      result= '00:00:00'
+     } else if (seconds>0 && seconds<10){
+      result= '0' + (Math.floor((seconds/60)/60)) + ':' + '0' + ((Math.floor(seconds/60))%60) + ':' + '0' + (seconds%60)
+     } else if (seconds>10 && seconds<60){
+      result= '0' + (Math.floor((seconds/60)/60)) + ':' + '0' + ((Math.floor(seconds/60))%60) + ':' + (seconds%60)
+    } else if (seconds===60){
+     result= '0' + (Math.floor((seconds/60)/60)) + ':' + '0' + ((Math.floor(seconds/60))%60) + ':' + '0' + (seconds%60)
+    } else if (seconds>61 && seconds<120){
+      result= '0' + (Math.floor((seconds/60)/60)) + ':' + '0' + ((Math.floor(seconds/60))%60) + ':' + (seconds%60)
+    } else if (seconds===120){
+      result= '0' + (Math.floor((seconds/60)/60)) + ':' + '0' + ((Math.floor(seconds/60))%60) + ':' + '0' + (seconds%60)
+    } else if (seconds>120 && seconds<3600){
+      result= '0' + (Math.floor((seconds/60)/60)) + ':' + ((Math.floor(seconds/60))%60) + ':' + (seconds%60)
+    } else if (seconds>3600 && seconds<= 56828){
+      result= (Math.floor((seconds/60)/60)) + ':' + ((Math.floor(seconds/60))%60) + ':' + `${seconds%60<10?'0':''}` + (seconds%60)
+    } else if (seconds>56828 && seconds<86400){
+      result= (Math.floor((seconds/60)/60)) + ':' + ((Math.floor(seconds/60))%60) + ':' + (seconds%60)
+    } 
+     return result
+    }
+
+    // result= (Math.floor((seconds/60)/60)) + ':' + ((Math.floor(seconds/60))%60) + ':' + '0' + (seconds%60)
+
+    // 👉 CHALLENGE 6
+    function rockPaperScissors(tool1, tool2) {
+      // 🧠 rockPaperScissors takes two arguments tool1 and tool2 which are strings,
+      //    and the desired values for these strings are 'rock' or 'paper' or 'scissors'
+      //    * If tool1 beats tool2, return the string "<tool1> beats <tool2>!", E.G. "rock beats scissors!"
+      //    * If tool2 beats tool1, return the string "<tool2> beats <tool1>!", E.G. "rock beats scissors!"
+      //    * If it's a draw, return the string "<tool> VS. <tool> is a draw!", E.G. "rock VS. rock is a draw!"
+      // 🧠 Edge cases:
+      //    Tools can be invalid in two ways: either one or both are not 'rock', 'paper' or 'scissors'
+      //    * If both tools are invalid, return the string "both tools invalid"
+      //    * If one tool is invalid, return the string "<tool> not a valid tool", E.G. "ROCK not a valid tool"
+    let result
+       if (((tool1!=='rock')&&
+            (tool1!=='paper')&&
+            (tool1!=='scissors'))&& 
+           ((tool2!=='rock')&&
+            (tool2!=='paper')&&
+            (tool2!=='scissors'))){
+              result= "both tools invalid"
+        } else if 
+           (((tool1!=='rock')&&
+            (tool1!=='paper')&&
+            (tool1!=='scissors'))&& 
+           ((tool2==='rock')||
+            (tool2==='paper')||
+            (tool2==='scissors'))){
+              result=  'x not a valid tool'
+        } else if 
+           (((tool1==='rock')||
+            (tool1==='paper')||
+            (tool1==='scissors'))&& 
+           ((tool2!=='rock')&&
+            (tool2!=='paper')&&
+            (tool2!=='scissors'))){
+              result= 'y not a valid tool'
+        } else if (((tool1==='rock')&&
+                    (tool2==='rock'))||
+                   ((tool1==='paper')&&
+                    (tool2==='paper'))||
+                   ((tool1==='scissors')&&
+                    (tool2==='scissors'))){
+                     result=`${tool1} VS. ${tool2} is a draw!`
+        } else if(tool1==='rock' && tool2==='scissors'){
+          result="rock beats scissors!"
+        } else if(tool1==='scissors' && tool2==='rock'){
+          result="rock beats scissors!"
+        } else if(tool1==='rock' && tool2==='paper'){
+          result="paper beats rock!"
+        } else if(tool1==='paper' && tool2==='rock'){
+          result="paper beats rock!"
+        } else if(tool1==='scissors' && tool2==='paper'){
+          result="scissors beats paper!"
+        } else if(tool1==='paper' && tool2==='scissors'){
+          result="scissors beats paper!"
+        } 
+        return result
+    
+    }
+
+    // 👉 CHALLENGE 7
+    // 🧠 Three of the functions implemented above are being used to display some widgets on the web page
+    // However, six crucial HTML elements are missing an id attribute that would allow the JavaScript code to find them
+    // Visit the following website: `https://bloominstituteoftechnology.github.io/W_U1_S1_sprint_challenge/`
+    //    * Interact with the site to see the widgets in action
+    //    * Use Chrome Dev Tools/Elements tab to find the missing ids
+    //    * Add the missing ids to the corresponding HTML elements in this document and make the widgets work
+
+    // 🧪 TESTS, do not make any changes below this line ===================
+    // 🧪 TESTS, do not make any changes below this line ===================
+    // 🧪 TESTS, do not make any changes below this line ===================
+    globalThis.challengeVersion = 1
+    globalThis.concatenator = concatenator
+    globalThis.falsinessDetector = falsinessDetector
+    globalThis.triangleAnalyzer = triangleAnalyzer
+    globalThis.advancedBatteryCare = advancedBatteryCare
+    globalThis.timeConverter = timeConverter
+    globalThis.rockPaperScissors = rockPaperScissors
+
+    if (typeof module === 'undefined') {
+      try {
+        runTests('CHALLENGE 1 - concatenator', concatenator, [
+          [[1, 'a'], 'a and b must be of the same type'],
+          [['a', 1], 'a and b must be of the same type'],
+          [[true, false], 'a and b must be numbers or strings'],
+          [[null, null], 'a and b must be numbers or strings'],
+          [['toyota', ' camry'], 'toyota camry'],
+          [[3, 5], 8],
+          [[3, -5], -2],
+        ])
+        runTests('CHALLENGE 2 - falsinessDetector', falsinessDetector, [
+          [[1, '2', true, '0', ' '], 'all values truthy'],
+          [[-1, '2', !false, '0', '-0'], 'all values truthy'],
+          [[0, -0, false, '', false], 'all values falsy'],
+          [[2 - 2, -0, !true, '' + '', !!false], 'all values falsy'],
+          [[0, -0, false, '', ' '], 'some values truthy and some falsy'],
+          [[5, -0, !true, ' ', '0'], 'some values truthy and some falsy'],
+        ])
+        runTests('CHALLENGE 3 - triangleAnalyzer', triangleAnalyzer, [
+          [[], 'all angles must be numbers'],
+          [['90', '60', '30'], 'all angles must be numbers'],
+          [[90, 60, '30'], 'all angles must be numbers'],
+          [[0, 0, 180], 'all angles must be greater than zero'],
+          [[-180, 180, 180], 'all angles must be greater than zero'],
+          [[90, 60, 31], 'angles must total 180'],
+          [[90, 60, 29], 'angles must total 180'],
+          [[90, 60, 30], 'this is a right triangle'],
+          [[45, 45, 90], 'this is a right triangle'],
+          [[35, 90, 55], 'this is a right triangle'],
+          [[91, 60, 29], 'this is an obtuse triangle'],
+          [[40, 45, 95], 'this is an obtuse triangle'],
+          [[25, 100, 55], 'this is an obtuse triangle'],
+          [[60, 60, 60], 'this is an acute triangle'],
+        ])
+        runTests('CHALLENGE 4 - advancedBatteryCare', advancedBatteryCare, [
+          [[0], 'congrats, battery dead'],
+          [[100], 'congrats, you cooked your battery'],
+          [[19], 'please connect charger'],
+          [[81], 'please unplug charger'],
+          [[20], 'your battery is at 20%'],
+          [[50], 'your battery is at 50%'],
+          [[80], 'your battery is at 80%'],
+        ])
+        runTests('CHALLENGE 5 - timeConverter', timeConverter, [
+          [[56828], "15:47:08"],
+          [[0], "00:00:00"],
+          [[1], "00:00:01"],
+          [[59], "00:00:59"],
+          [[60], "00:01:00"],
+          [[119], "00:01:59"],
+          [[120], "00:02:00"],
+          [[3599], "00:59:59"],
+          [[86399], "23:59:59"],
+        ])
+        runTests('CHALLENGE 6 - rockPaperScissors', rockPaperScissors, [
+          [['x', 'y'], "both tools invalid"],
+          [['x', 'paper'], "x not a valid tool"],
+          [['rock', 'y'], "y not a valid tool"],
+          [['rock', 'rock'], "rock VS. rock is a draw!"],
+          [['paper', 'paper'], "paper VS. paper is a draw!"],
+          [['scissors', 'scissors'], "scissors VS. scissors is a draw!"],
+          [['rock', 'scissors'], "rock beats scissors!"],
+          [['paper', 'rock'], "paper beats rock!"],
+          [['scissors', 'paper'], "scissors beats paper!"],
+          [['scissors', 'rock'], "rock beats scissors!"],
+          [['rock', 'paper'], "paper beats rock!"],
+          [['paper', 'scissors'], "scissors beats paper!"],
+        ])
+        console.log('\nCHALLENGE 7 does not have auto tests')
+        function runTests(testName, func, tests) {
+          let results = []
+          tests.forEach(test => {
+            const argsList = test[0]
+            const expected = JSON.stringify(test[1])
+            const actual = JSON.stringify(func.apply(null, argsList))
+            results.push([argsList, expected, actual])
+          })
+          console.log('\n' + testName)
+          if (results.every(result => result[1] === result[2])) console.log('\t✅ All tests pass')
+          else if (results.every(result => result[1] !== result[2])) console.log('\t❌ All tests fail')
+          else results.forEach((result, idx) => {
+            if (result[1] === result[2]) console.log(`\t✅ Test ${idx + 1} passes`)
+            else console.log(`\t❌ Test ${idx + 1} fails: ${func.name}(${result[0]
+              .map(JSON.stringify)}) should return ${result[1]} but returns ${result[2]}`)
+          })
+        }
+        setInterval(() => {
+          try {
+            const date = new Date
+            const secs = date.getSeconds() + (60 * date.getMinutes()) + (60 * 60 * date.getHours())
+            time.textContent = timeConverter(secs)
+          } catch { }
+        }, 1000)
+        const game = (tool1, tool2, message) => () => {
+          message.textContent = rockPaperScissors(tool1.value.trim(), tool2.value.trim())
+        }
+        try {
+          inputTool1.oninput = game(inputTool1, inputTool2, rps)
+          inputTool2.oninput = game(inputTool1, inputTool2, rps)
+          sliderBattery.onchange = () => {
+            infoBattery.textContent = advancedBatteryCare(Number(sliderBattery.value))
+          }
+        } catch { }
+      } catch (err) { console.error(err.stack) }
+    }
+  </script>
+</body>
+
+</html>
